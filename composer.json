@@ -1,4 +1,6 @@
 {
+    "name": "iakio/silex-containerdoc",
+    "license": "MIT",
     "autoload": {
         "psr-0": {
             "iakio\\containerdoc": "src/"
