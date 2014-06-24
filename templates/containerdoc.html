@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
+  <style>
+  table {
+    margin: 2em auto;
+  }
+  </style>
+  <title>Container Document</title>
+</head>
+
+<body>
+
+    <div class="content">
+
+      <table class="pure-table">
+
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+            <th></th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <?php foreach ($doc as $key => $val): ?>
+          <tr>
+            <td><?= htmlspecialchars($key) ?></td>
+            <td><?= htmlspecialchars($val[0]) ?></td>
+            <td><?= htmlspecialchars($val[1]) ?></td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+
+</body>
+
+</html>
