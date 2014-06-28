@@ -16,15 +16,15 @@ class ContainerDocProvider implements ServiceProviderInterface
                 try {
                     $val = $app[$key];
                     if (is_scalar($val)) {
-                        $doc[$key] = array('scalar', var_export($val, true));
+                        $doc[$key] = array('Scalar', var_export($val, true));
                     } elseif (is_array($val)) {
-                        $doc[$key] = array('array', count($val));
+                        $doc[$key] = array('Array', count($val));
                     } elseif (is_object($val)) {
-                        $doc[$key] = array('object', get_class($val));
+                        $doc[$key] = array('Object', get_class($val));
                     } else {
                     }
                 } catch (\Exception $e) {
-                    $doc[$key] = get_class($e);
+                    $doc[$key] = array('Exception', $e->getMessage());
                 }
             }
             ob_start();
