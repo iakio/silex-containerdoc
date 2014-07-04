@@ -1,5 +1,6 @@
 {
     "name": "iakio/silex-containerdoc",
+    "description": "Show what is inside in your container.",
     "license": "MIT",
     "autoload": {
         "psr-0": {
