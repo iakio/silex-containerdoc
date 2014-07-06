@@ -13,10 +13,10 @@ Add dependency to your `composer.json`.
 }
 ```
 
-and add `ContainerDocProvider` to your Application Container.
+and mount `ContainerDocProvider` to your Application Container.
 
 ```
-$app->register(new iakio\containerdoc\ContainerDocProvider());
+$app->mount('/containerdoc', new iakio\containerdoc\ContainerDocProvider());
 ```
 
 Then, just access `/containerdoc`.

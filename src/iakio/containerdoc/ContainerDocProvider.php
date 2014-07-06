@@ -2,13 +2,24 @@
 namespace iakio\containerdoc;
 
 use Silex\Application;
+use Silex\ControllerCollection;
+use Silex\ControllerProviderInterface;
 use Silex\ServiceProviderInterface;
 
-class ContainerDocProvider implements ServiceProviderInterface
+class ContainerDocProvider implements ControllerProviderInterface
 {
-    public function register(Application $app)
+    /**
+     * Returns routes to connect to the given application.
+     *
+     * @param Application $app An Application instance
+     *
+     * @return ControllerCollection A ControllerCollection instance
+     */
+    public function connect(Application $app)
     {
-        $app->get('/containerdoc', function () use ($app) {
+        /** @var ControllerCollection $controllers */
+        $controllers = $app['controllers_factory'];
+        $controllers->get('/', function () use ($app) {
             $keys = $app->keys();
             sort($keys);
             $doc = array();
@@ -31,9 +42,6 @@ class ContainerDocProvider implements ServiceProviderInterface
             require __DIR__ . "/../../../templates/containerdoc.html";
             return ob_get_clean();
         });
-    }
-
-    public function boot(Application $app)
-    {
+        return $controllers;
     }
 }
